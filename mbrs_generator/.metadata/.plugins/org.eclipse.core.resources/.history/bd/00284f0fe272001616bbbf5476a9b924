@@ -48,11 +48,7 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		GeneratorOptions springServiceOptions = new GeneratorOptions(output_path, "serviceclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//service"); 				
 		springServiceOptions.setTemplateDir(pluginDir + File.separator + springServiceOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringServiceGenerator", springServiceOptions);
-		
-		// Spring Service Implementation
-		GeneratorOptions springServiceImplOptions = new GeneratorOptions(output_path, "serviceimplclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//service/impl"); 				
-		springServiceImplOptions.setTemplateDir(pluginDir + File.separator + springServiceImplOptions.getTemplateDir()); //apsolutna putanja
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringServiceImplGenerator", springServiceImplOptions);
+
 	}
 	
 	private String getOutputPath() {

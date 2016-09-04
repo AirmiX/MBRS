@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 import com.nomagic.actions.NMAction;
 import com.nomagic.magicdraw.actions.ActionsConfiguratorsManager;
 
-import myplugin.generator.SpringGenerator;
 import myplugin.generator.options.GeneratorOptions;
 import myplugin.generator.options.ProjectOptions;
 
@@ -49,10 +48,10 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		springServiceOptions.setTemplateDir(pluginDir + File.separator + springServiceOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringServiceGenerator", springServiceOptions);
 		
-		// Spring Service Implementation
-		GeneratorOptions springServiceImplOptions = new GeneratorOptions(output_path, "serviceimplclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//service/impl"); 				
-		springServiceImplOptions.setTemplateDir(pluginDir + File.separator + springServiceImplOptions.getTemplateDir()); //apsolutna putanja
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringServiceImplGenerator", springServiceImplOptions);
+		// Spring Service
+		GeneratorOptions go3 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("SpringServiceGenerator");			
+		SpringGenerator springServiceGenerator = new SpringGenerator(go3);
+		springServiceGenerator.generate();
 	}
 	
 	private String getOutputPath() {
