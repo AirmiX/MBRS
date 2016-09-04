@@ -51,11 +51,6 @@ class GenerateAction extends MDAction{
 			SpringGenerator springModelGenerator = new SpringGenerator(go1);
 			springModelGenerator.generate();
 			
-			// Spring Repository
-			GeneratorOptions go2 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("SpringRepositoryGenerator");			
-			SpringGenerator springRepositoryGenerator = new SpringGenerator(go2);
-			springRepositoryGenerator.generate();
-			
 			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + rootDirectory);
 //			exportToXml();
 		} catch (AnalyzeException e) {

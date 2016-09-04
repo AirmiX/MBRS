@@ -37,12 +37,6 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		GeneratorOptions springModelOptions = new GeneratorOptions(output_path, "modelclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//model"); 				
 		springModelOptions.setTemplateDir(pluginDir + File.separator + springModelOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringModelGenerator", springModelOptions);
-		
-		// Spring Repository
-		GeneratorOptions springRepositoryOptions = new GeneratorOptions(output_path, "repositoryclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//repository"); 				
-		springRepositoryOptions.setTemplateDir(pluginDir + File.separator + springRepositoryOptions.getTemplateDir()); //apsolutna putanja
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringRepositoryGenerator", springRepositoryOptions);
-		
 	}
 	
 	private String getOutputPath() {
