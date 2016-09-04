@@ -1,0 +1,14 @@
+package myplugin.generator;
+
+public class Snippet {
+	protected GeneratorOptions generatorOptions; 
+	protected String outputPath;	
+	protected String templateName;
+	protected String templateDir;
+	protected String outputFileName;
+	protected boolean overwrite = false;
+	protected String filePackage;
+	protected Configuration cfg;
+	protected Template template;
+}
+
