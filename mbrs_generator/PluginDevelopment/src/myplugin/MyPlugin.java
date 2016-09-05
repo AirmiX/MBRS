@@ -111,6 +111,11 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		angularServicesOptions.setTemplateDir(pluginDir + File.separator + angularServicesOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularServicesGenerator", angularServicesOptions);
 		
+		// angular controllers
+		GeneratorOptions angularControllersOptions = new GeneratorOptions(output_path, "angularcontrollers", "templates//angular", "{0}.js", true, "src//main//webapp//static//app//js"); 				
+		angularControllersOptions.setTemplateDir(pluginDir + File.separator + angularControllersOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularControllersGenerator", angularControllersOptions);
+				
 	}
 	
 	private String getOutputPath() {

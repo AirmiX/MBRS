@@ -120,6 +120,11 @@ class GenerateAction extends MDAction{
 			AngularGenerator angularServicesGenerator = new AngularGenerator(go15);
 			angularServicesGenerator.generateJSFile();
 			
+			GeneratorOptions go16 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularControllersGenerator");			
+			AngularGenerator angularControllersGenerator = new AngularGenerator(go16);
+			angularControllersGenerator.generateJSFile();
+			
+			
 			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + rootDirectory);
 //			exportToXml();
 		} catch (AnalyzeException e) {
