@@ -112,6 +112,10 @@ class GenerateAction extends MDAction{
 			AngularGenerator angularIndexGenerator = new AngularGenerator(go13);
 			angularIndexGenerator.generateIndexPage();
 			
+			GeneratorOptions go14 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularRoutesGenerator");			
+			AngularGenerator angularRoutesGenerator = new AngularGenerator(go14);
+			angularRoutesGenerator.generateJSFile();
+			
 			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + rootDirectory);
 //			exportToXml();
 		} catch (AnalyzeException e) {
