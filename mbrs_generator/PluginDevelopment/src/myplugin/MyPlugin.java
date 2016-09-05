@@ -74,6 +74,19 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		springDTOtoModelOptions.setTemplateDir(pluginDir + File.separator + springDTOtoModelOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringDTOToModelGenerator", springDTOtoModelOptions);
 				
+		// Spring Application file
+		GeneratorOptions springApplicationFileOptions = new GeneratorOptions(output_path, "application", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo"); 				
+		springApplicationFileOptions.setTemplateDir(pluginDir + File.separator + springApplicationFileOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringApplicationFileGenerator", springApplicationFileOptions);
+	
+		// *************** ANGULAR GENERATOR OPTIONS ***************
+		
+		// entity list
+		GeneratorOptions angularEntityListPageOptions = new GeneratorOptions(output_path, "entitylist", "templates//angular//html", "{0}.html", true, "src//main//webapp//static//app//html//partial"); 				
+		angularEntityListPageOptions.setTemplateDir(pluginDir + File.separator + angularEntityListPageOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularEntityListPageGenerator", angularEntityListPageOptions);
+
+		
 		
 	}
 	

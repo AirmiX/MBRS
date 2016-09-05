@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
+import myplugin.generator.AngularGenerator;
 import myplugin.generator.EJBGenerator;
 import myplugin.generator.SpringGenerator;
 import myplugin.generator.fmmodel.FMModel;
@@ -91,6 +92,14 @@ class GenerateAction extends MDAction{
 			SpringGenerator springApplicationFileGenerator = new SpringGenerator(go9);
 			springApplicationFileGenerator.generateApplicationFile();
 			
+			// ********************************************************************
+			
+			// ****************** ANGULAR GENERATOR ********************
+			
+			GeneratorOptions go10 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularEntityListPageGenerator");			
+			AngularGenerator angularEntityListPageGenerator = new AngularGenerator(go10);
+			angularEntityListPageGenerator.generate();
+						
 			
 			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + rootDirectory);
 //			exportToXml();
