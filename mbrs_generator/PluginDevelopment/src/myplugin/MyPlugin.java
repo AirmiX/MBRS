@@ -86,7 +86,11 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		angularEntityListPageOptions.setTemplateDir(pluginDir + File.separator + angularEntityListPageOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularEntityListPageGenerator", angularEntityListPageOptions);
 
-		
+		// add edit entity
+		GeneratorOptions angularAddEditEntityPageOptions = new GeneratorOptions(output_path, "addeditentity", "templates//angular//html", "{0}.html", true, "src//main//webapp//static//app//html//partial"); 				
+		angularAddEditEntityPageOptions.setTemplateDir(pluginDir + File.separator + angularAddEditEntityPageOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularAddEditEntityPageGenerator", angularAddEditEntityPageOptions);
+				
 		
 	}
 	
