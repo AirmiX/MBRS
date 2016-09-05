@@ -76,6 +76,11 @@ class GenerateAction extends MDAction{
 			SpringGenerator springControllerGenerator = new SpringGenerator(go6);
 			springControllerGenerator.generate();
 			
+			// Spring support model to dto
+			GeneratorOptions go7 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("SpringModelToDTOGenerator");			
+			SpringGenerator springModelToDTOGenerator = new SpringGenerator(go7);
+			springModelToDTOGenerator.generate();
+			
 			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + rootDirectory);
 //			exportToXml();
 		} catch (AnalyzeException e) {
