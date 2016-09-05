@@ -69,7 +69,11 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		springModelToDTOOptions.setTemplateDir(pluginDir + File.separator + springModelToDTOOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringModelToDTOGenerator", springModelToDTOOptions);
 				
-		
+		// Spring support dto to model
+		GeneratorOptions springDTOtoModelOptions = new GeneratorOptions(output_path, "dtotomodelclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//support"); 				
+		springDTOtoModelOptions.setTemplateDir(pluginDir + File.separator + springDTOtoModelOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringDTOToModelGenerator", springDTOtoModelOptions);
+				
 		
 	}
 	
