@@ -104,6 +104,11 @@ class GenerateAction extends MDAction{
 			AngularGenerator angularAddEditEntityPageGenerator = new AngularGenerator(go11);
 			angularAddEditEntityPageGenerator.generate();
 			
+			GeneratorOptions go12 = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularViewEntityPageGenerator");			
+			AngularGenerator angularViewEntityPageGenerator = new AngularGenerator(go12);
+			angularViewEntityPageGenerator.generate();
+			
+			
 			
 			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + rootDirectory);
 //			exportToXml();
