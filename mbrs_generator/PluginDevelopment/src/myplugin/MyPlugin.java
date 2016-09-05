@@ -58,6 +58,12 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		GeneratorOptions springDTOOptions = new GeneratorOptions(output_path, "dtoclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//web//dto"); 				
 		springDTOOptions.setTemplateDir(pluginDir + File.separator + springDTOOptions.getTemplateDir()); //apsolutna putanja
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringDTOGenerator", springDTOOptions);
+			
+		// Spring controller
+		GeneratorOptions springControllerOptions = new GeneratorOptions(output_path, "controllerclass", "templates//spring", "{0}.java", true, "src//main//java//com//example//demo//web//controller"); 				
+		springControllerOptions.setTemplateDir(pluginDir + File.separator + springControllerOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("SpringControllerGenerator", springControllerOptions);
+	
 				
 	}
 	
