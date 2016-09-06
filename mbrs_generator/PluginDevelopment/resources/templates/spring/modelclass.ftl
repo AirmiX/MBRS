@@ -58,6 +58,20 @@ ${class.visibility} class ${class.name} extends AbstractBaseEntity {
    	public void set${property.name?cap_first}( Set<${property.type}> ${property.name}){
      	this.${property.name} = ${property.name};
    	}
+   		<#else>
+   	public void add${property.name?cap_first}(${property.type} ${property.name}){
+		this.${property.name}List.add(${property.name});
+		
+		if(${property.name}.get${class.name}() != this){
+			${property.name}.set${class.name}(this);
+		}
+	}
+	
+	public void remove${property.name?cap_first}(${property.type} ${property.name}){
+		${property.name}.set${class.name}(null);
+		${property.name}List.remove(${property.name});
+	}
+	
       	</#if>
     <#else>   
     	<#list 1..property.upper as i>

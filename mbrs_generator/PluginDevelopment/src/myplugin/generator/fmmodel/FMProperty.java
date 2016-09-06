@@ -2,6 +2,7 @@ package myplugin.generator.fmmodel;
 
 
 public class FMProperty extends FMElement  {
+	
 	//Property type
 	private String type;
 	// Property visibility (public, private, protected, package)
@@ -14,6 +15,18 @@ public class FMProperty extends FMElement  {
 	private Boolean association;
 	
 	private String aggregationKind;
+	
+	// (RestaurantProfile)
+	
+	private Boolean hidden;
+	
+	private Boolean findBy;
+	
+	private ValidationProperty validationProperty;
+	
+	// (UIProfile)
+	
+	private UIProperty uiProperty;
 	
 	
 	/** @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
@@ -62,7 +75,6 @@ public class FMProperty extends FMElement  {
 		this.upper = upper;
 	}
 	
-
 	public Boolean getAssociation() {
 		return association;
 	}
@@ -78,5 +90,39 @@ public class FMProperty extends FMElement  {
 	public void setAggregationKind(String aggregationKind) {
 		this.aggregationKind = aggregationKind;
 	}
+
+	public Boolean getHidden() {
+		return hidden;
+	}
+
+	public void setHidden(Boolean hidden) {
+		this.hidden = hidden;
+	}
+
+	public Boolean getFindBy() {
+		return findBy;
+	}
+
+	public void setFindBy(Boolean findBy) {
+		this.findBy = findBy;
+	}
+
+	public ValidationProperty getValidationProperty() {
+		return validationProperty;
+	}
+
+	public void setValidationProperty(ValidationProperty validationProperty) {
+		this.validationProperty = validationProperty;
+	}
+
+	public UIProperty getUiProperty() {
+		return uiProperty;
+	}
+
+	public void setUiProperty(UIProperty uiProperty) {
+		this.uiProperty = uiProperty;
+	}
+	
+	
 
 }
