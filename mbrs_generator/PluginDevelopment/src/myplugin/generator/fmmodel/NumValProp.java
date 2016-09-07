@@ -2,30 +2,30 @@ package myplugin.generator.fmmodel;
 
 public class NumValProp extends ValidationProperty {
 
-	private Integer minLength;
+	private Integer minValue;
 	
-	private Integer maxLength;
+	private Integer maxValue;
 
-	public NumValProp(Boolean unique, Boolean notNull, Integer minLength, Integer maxLength) {
+	public NumValProp(Boolean unique, Boolean notNull, Integer minValue, Integer maxValue) {
 		super(unique, notNull);
-		this.minLength = minLength;
-		this.maxLength = maxLength;
+		this.minValue = minValue;
+		this.maxValue = maxValue;
 	}
 
-	public Integer getMinLength() {
-		return minLength;
+	public Integer getMinValue() {
+		return minValue;
 	}
 
-	public void setMinLength(Integer minLength) {
-		this.minLength = minLength;
+	public void setMinValue(Integer minValue) {
+		this.minValue = minValue;
 	}
 
-	public Integer getMaxLength() {
-		return maxLength;
+	public Integer getMaxValue() {
+		return maxValue;
 	}
 
-	public void setMaxLength(Integer maxLength) {
-		this.maxLength = maxLength;
+	public void setMaxValue(Integer maxValue) {
+		this.maxValue = maxValue;
 	}
 	
 	

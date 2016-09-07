@@ -14,10 +14,10 @@ public class UIClass {
 	private String groupPresType;
 	private String singlePresType;
 	
-	private FMProperty presentationProperty;
+	private String presPropertyName;
 
 	public UIClass(String label, Boolean add, Boolean view, Boolean update, Boolean delete, String groupPresType,
-			String singlePresType, FMProperty presentationProperty) {
+			String singlePresType, String presPropertyName) {
 		super();
 		this.label = label;
 		this.add = add;
@@ -26,7 +26,7 @@ public class UIClass {
 		this.delete = delete;
 		this.groupPresType = groupPresType;
 		this.singlePresType = singlePresType;
-		this.presentationProperty = presentationProperty;
+		this.presPropertyName = presPropertyName;
 	}
 
 	public String getLabel() {
@@ -85,15 +85,13 @@ public class UIClass {
 		this.singlePresType = singlePresType;
 	}
 
-	public FMProperty getPresentationProperty() {
-		return presentationProperty;
+	public String getPresPropertyName() {
+		return presPropertyName;
 	}
 
-	public void setPresentationProperty(FMProperty presentationProperty) {
-		this.presentationProperty = presentationProperty;
+	public void setPresPropertyName(String presPropertyName) {
+		this.presPropertyName = presPropertyName;
 	}
 
-	
-	
 	
 }

@@ -19,7 +19,7 @@ public class FMClass extends FMType {
 
 	private Role role = null;
 	
-	private Role managedBy = null;
+	private String managedBy = null;
 	
 	/** @ToDo: add list of methods */
 	
@@ -92,11 +92,11 @@ public class FMClass extends FMType {
 		this.role = role;
 	}
 
-	public Role getManagedBy() {
+	public String getManagedBy() {
 		return managedBy;
 	}
 
-	public void setManagedBy(Role managedBy) {
+	public void setManagedBy(String managedBy) {
 		this.managedBy = managedBy;
 	}
 	

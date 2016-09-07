@@ -7,17 +7,13 @@ public class UIProperty {
 	private String formType;
 	
 	private Boolean readOnly;
+
 	
-	private Boolean next;
-	
-	private Boolean zoom;
-	
-	public UIProperty(String formType, Boolean readOnly, Boolean next, Boolean zoom) {
+	public UIProperty(String label, String formType, Boolean readOnly) {
 		super();
+		this.label = label;
 		this.formType = formType;
 		this.readOnly = readOnly;
-		this.next = next;
-		this.zoom = zoom;
 	}
 
 	public String getFormType() {
@@ -34,22 +30,6 @@ public class UIProperty {
 
 	public void setReadOnly(Boolean readOnly) {
 		this.readOnly = readOnly;
-	}
-
-	public Boolean getNext() {
-		return next;
-	}
-
-	public void setNext(Boolean next) {
-		this.next = next;
-	}
-
-	public Boolean getZoom() {
-		return zoom;
-	}
-
-	public void setZoom(Boolean zoom) {
-		this.zoom = zoom;
 	}
 
 	public String getLabel() {

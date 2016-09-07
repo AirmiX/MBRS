@@ -26,6 +26,10 @@ public class FMProperty extends FMElement  {
 	
 	// (UIProfile)
 	
+	private Boolean next;
+	
+	private Boolean zoom;
+	
 	private UIProperty uiProperty;
 	
 	
@@ -121,6 +125,22 @@ public class FMProperty extends FMElement  {
 
 	public void setUiProperty(UIProperty uiProperty) {
 		this.uiProperty = uiProperty;
+	}
+
+	public Boolean getNext() {
+		return next;
+	}
+
+	public void setNext(Boolean next) {
+		this.next = next;
+	}
+
+	public Boolean getZoom() {
+		return zoom;
+	}
+
+	public void setZoom(Boolean zoom) {
+		this.zoom = zoom;
 	}
 	
 	
