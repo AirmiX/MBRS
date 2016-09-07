@@ -443,12 +443,71 @@ public class ModelAnalyzer {
 		Boolean next = (nextStereotype != null)? true : false;
 		fmProperty.setNext(next);
 		
+		String nextPresPropertyName = null;
+		
+		if(next) {
+			
+			List<Property> tags = nextStereotype.getOwnedAttribute();
+			
+	        for (int j = 0; j < tags.size(); ++j)
+	        {
+	        	Property tagDef = tags.get(j);
+	        	String tagName = tagDef.getName();
+	        	
+	        	List value = StereotypesHelper.getStereotypePropertyValue(p, nextStereotype, tagName);
+	        	
+	        	if(value.size() > 0) {
+	        	
+	        		switch(tagName) {
+	            	
+	        		case "presProperty" : 
+	        			Property nextPresProperty = (Property) value.get(0); 
+	        			nextPresPropertyName = nextPresProperty.getName();
+	        			break;
+		            
+		            }
+	        	}
+	        }
+	        
+	        fmProperty.setNextPresPropertyName(nextPresPropertyName);
+		}
+		
+		
 		Stereotype zoomStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "Zoom");
 		Boolean zoom = (zoomStereotype != null)? true : false;
 		fmProperty.setZoom(zoom);
 		
-		System.out.println("Next: " + next);
-		System.out.println("Zoom: " + zoom);
+		String zoomPresPropertyName = null;
+		
+		if(zoom) {
+			
+			List<Property> tags = zoomStereotype.getOwnedAttribute();
+			
+	        for (int j = 0; j < tags.size(); ++j)
+	        {
+	        	Property tagDef = tags.get(j);
+	        	String tagName = tagDef.getName();
+	        	
+	        	List value = StereotypesHelper.getStereotypePropertyValue(p, zoomStereotype, tagName);
+	        	
+	        	if(value.size() > 0) {
+	        	
+	        		switch(tagName) {
+	            	
+	        		case "presProperty" : 
+	        			Property zoomPresProperty = (Property) value.get(0); 
+	        			zoomPresPropertyName = zoomPresProperty.getName();
+	        			break;
+		            
+		            }
+	        	}
+	        }
+	        
+	        fmProperty.setZoomPresPropertyName(zoomPresPropertyName);
+		}
+		
+		System.out.println("Next: " + next + " NextPresPropertyName: " + nextPresPropertyName);
+		System.out.println("Zoom: " + zoom + " ZoomPresPropertyName: " + zoomPresPropertyName);
 		
 		Stereotype uiPropertyStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "UIProperty");
 

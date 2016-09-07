@@ -2,21 +2,25 @@
 
 <form ng-init="initAddEditPage(); getOne()" class="form-horizontal">
 	<#list properties as property>
-		<#if property.upper == 1>
+		<#if !property.hidden?? || property.hidden == false>
+			<#if property.upper == 1>
+	    		<#if property.association == false && property.uiProperty??>
 	<div class="form-group">
 	    <label class="col-sm-2 control-label">${property.name?cap_first}</label>
-	    	<#if property.association == false>
 	    <div class="col-sm-4">
-	    	<input type="text" class="form-control" placeholder="${property.name?cap_first}..." ng-model="${class.name?uncap_first}.${property.name}" <#if property.name == "name">ng-disabled="addEditHeading == 'Edit'"</#if>>
+	    	<input type="${property.uiProperty.formType}" class="form-control" placeholder="${property.name?cap_first}..." ng-model="${class.name?uncap_first}.${property.name}" <#if property.uiProperty.readOnly?? && property.uiProperty.readOnly == true> ng-disabled="addEditHeading == 'Edit'"</#if>>
 	    </div>
-	    	<#else> 
+	    		<#elseif property.zoom?? && property.zoom == true && property.zoomPresPropertyName??> 
+	<div class="form-group">
+	    <label class="col-sm-2 control-label">${property.name?cap_first}</label>
 	    <div class="col-sm-4">
-	    	<select class="form-control" ng-model="${class.name?uncap_first}.${property.name}" ng-disabled="addEditHeading == 'Edit'">
-	    		<option ng-repeat="${property.name} in ${property.name}List" value="{{${property.name}}}"> {{${property.name}.name}} </option>
+	    	<select class="form-control" ng-model="${class.name?uncap_first}.${property.name}">
+	    		<option ng-repeat="${property.name} in ${property.name}List" value="{{${property.name}}}"> {{${property.name}.${property.zoomPresPropertyName}}} </option>
 	    	</select>
 	    </div>
-	    	</#if>  
+	    		</#if>  
  	</div>
+ 			</#if>
  		</#if>
 	</#list>
 

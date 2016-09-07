@@ -8,6 +8,8 @@ import ${class.typePackage}.support.${class.name}DTOTo${class.name};
 import ${class.typePackage}.support.${class.name}To${class.name}DTO;
 import ${class.typePackage}.web.dto.${class.name}DTO;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -56,6 +58,23 @@ public class Api${class.name}Controller {
 	
 		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}List), httpHeaders, HttpStatus.OK);
 	}
+	
+	<#list properties as property>
+		<#if property.upper == 1 && (!property.hidden?? || property.hidden == false)>
+			<#if property.association == true && property.zoom?? && property.zoom == true>
+	@RequestMapping(value = "/filterBy${property.type}/{id}", method = RequestMethod.GET)
+		ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.type}(@PathVariable Long id) {
+
+		List<${class.name}> ${class.name?uncap_first}List;
+		
+		${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.type}Id(id);
+			
+		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}List), HttpStatus.OK);
+	}
+	
+			</#if>
+		</#if>
+ 	</#list>
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	ResponseEntity<${class.name}DTO> get${class.name}(@PathVariable Long id) {
@@ -75,7 +94,7 @@ public class Api${class.name}Controller {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<${class.name}DTO> add(@RequestBody ${class.name}DTO new${class.name}) {
+	public ResponseEntity<${class.name}DTO> add(@RequestBody @Valid ${class.name}DTO new${class.name}) {
 
 		${class.name} saved${class.name} = ${class.name?uncap_first}Service.save(to${class.name}
 				.convert(new${class.name}));
@@ -84,7 +103,7 @@ public class Api${class.name}Controller {
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<${class.name}DTO> edit(@RequestBody ${class.name}DTO ${class.name?uncap_first},
+	public ResponseEntity<${class.name}DTO> edit(@RequestBody @Valid ${class.name}DTO ${class.name?uncap_first},
 			@PathVariable Long id) {
 
 		if (id != ${class.name?uncap_first}.getId()) {

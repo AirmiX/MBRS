@@ -47,7 +47,7 @@ public class ${class.name}DTOTo${class.name}
 		${class.name?uncap_first}.setId(dto.getId());
 		
 		<#list properties as property>
-			<#if property.upper == 1 >
+			<#if property.upper == 1 && (!property.hidden?? || property.hidden == false)>
 				<#if property.association == false>
 	    ${class.name?uncap_first}.set${property.name?cap_first}(dto.get${property.name?cap_first}());
 				<#else>

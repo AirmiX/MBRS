@@ -21,7 +21,8 @@ ${class.visibility} class ${class.name} extends AbstractBaseEntity {
 		<#if property.association == true>
 	@ManyToOne(fetch=FetchType.LAZY)
 		<#else>
-	@Column(name="${property.name?lower_case}")
+	@Column(name="${property.name?lower_case}"
+	<#if property.validationProperty?? && property.validationProperty.unique?? && property.validationProperty.unique == true>, unique=true</#if>)
 		</#if>
     ${property.visibility} ${property.type} ${property.name};
     <#elseif property.upper == -1 > 

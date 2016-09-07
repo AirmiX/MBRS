@@ -27,11 +27,12 @@ public class FMProperty extends FMElement  {
 	// (UIProfile)
 	
 	private Boolean next;
+	private String nextPresPropertyName;
 	
 	private Boolean zoom;
+	private String zoomPresPropertyName;
 	
-	private UIProperty uiProperty;
-	
+	private UIProperty uiProperty;	
 	
 	/** @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
 	 * Also, provide these meta-attributes or tags in the modeling languange metaclass or 
@@ -135,6 +136,14 @@ public class FMProperty extends FMElement  {
 		this.next = next;
 	}
 
+	public String getNextPresPropertyName() {
+		return nextPresPropertyName;
+	}
+
+	public void setNextPresPropertyName(String nextPresPropertyName) {
+		this.nextPresPropertyName = nextPresPropertyName;
+	}
+
 	public Boolean getZoom() {
 		return zoom;
 	}
@@ -142,7 +151,14 @@ public class FMProperty extends FMElement  {
 	public void setZoom(Boolean zoom) {
 		this.zoom = zoom;
 	}
-	
-	
+
+	public String getZoomPresPropertyName() {
+		return zoomPresPropertyName;
+	}
+
+	public void setZoomPresPropertyName(String zoomPresPropertyName) {
+		this.zoomPresPropertyName = zoomPresPropertyName;
+	}
+
 
 }

@@ -17,6 +17,16 @@ demoApp.service('${class.name?uncap_first}Service', function($http) {
 		return $http.get(this.url, { params: {'name': name, 'page': page}});
 	};
 	
+	<#list class.properties as property>
+		<#if property.upper == 1 && (!property.hidden?? || property.hidden == false)>
+			<#if property.association == true && property.zoom?? && property.zoom == true>
+	this.getAllBy${property.type} = function(id) {
+		return $http.get(this.url + "/filterBy${property.type}/" + id);
+	};
+			</#if>
+		</#if>
+ 	</#list>
+	
 	this.save = function(${class.name?uncap_first}) {
 		if (${class.name?uncap_first}.id) {
 			return $http.put(this.url + '/' + ${class.name?uncap_first}.id, ${class.name?uncap_first});

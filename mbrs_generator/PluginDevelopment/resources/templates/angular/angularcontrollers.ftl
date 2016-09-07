@@ -2,7 +2,9 @@ var demoApp = angular.module('demoApp.controllers', ['ui.bootstrap']);
 
 <#list classes as class>
 demoApp.controller('${class.name}Controller', function($scope, $location, $routeParams, $uibModal,
-	<#list class.properties as property><#if property.upper == 1 && property.association == true>${property.name}Service, </#if></#list> ${class.name?uncap_first}Service) {
+	<#list class.properties as property><#if property.upper == 1 && property.association == true>${property.name}Service, </#if></#list> 
+	<#list class.properties as property><#if property.upper == -1 && property.association == true && property.next?? && property.next == true>${property.type?uncap_first}Service, </#if></#list>
+	${class.name?uncap_first}Service) {
 	
 	$scope.reverse = true;
 	
@@ -10,7 +12,7 @@ demoApp.controller('${class.name}Controller', function($scope, $location, $route
 		$scope.${class.name?uncap_first}List = $scope.${class.name?uncap_first}List.slice().reverse();
 	}
 	
-	$scope.maxSize = 5;
+	$scope.maxSize = 12;
 	
 	$scope.open = function () {
 		if(!$routeParams.if) {
@@ -94,6 +96,19 @@ demoApp.controller('${class.name}Controller', function($scope, $location, $route
 			${class.name?uncap_first}Service.getOne($routeParams.id)
 					.success(function(data) {
 						$scope.${class.name?uncap_first} = data;
+						<#list class.properties as property>
+							<#if property.upper == -1 && property.association == true && property.next?? && property.next == true>
+						${property.type?uncap_first}Service.getAllBy${class.name}($scope.${class.name?uncap_first}.id)
+							.success(function(data) {
+								$scope.${property.type?uncap_first}List = data;
+							})
+							.error(function() {
+								
+							});
+							</#if>
+						</#list>
+						
+						
 					})
 					.error(function() {
 						$scope.alerts.push({msg: '${class.name} with ID ' + $routeParams.id + ' does not exist!', type: 'danger'});

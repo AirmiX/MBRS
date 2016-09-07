@@ -32,7 +32,7 @@ public class ${class.name}To${class.name}DTO implements Converter<${class.name},
 		
 		dto.setId(${class.name?uncap_first}.getId());
 		<#list properties as property>
-			<#if property.upper == 1 >
+			<#if property.upper == 1 && (!property.hidden?? || property.hidden == false)>
 				<#if property.association == false>
 		dto.set${property.name?cap_first}(${class.name?uncap_first}.get${property.name?cap_first}());
 				<#else>

@@ -32,7 +32,7 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 		
 	@Override
 	public Page<${class.name}> findAll(int page) {
-		return ${class.name?uncap_first}Repository.findAll(new PageRequest(page, 5));
+		return ${class.name?uncap_first}Repository.findAll(new PageRequest(page, 12));
 	}
 
 	@Override
@@ -49,5 +49,21 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 		${class.name?uncap_first}Repository.delete(${class.name?uncap_first});
 		return ${class.name?uncap_first};
 	}
+	
+	<#list properties as property>
+		<#if property.upper == 1 && (!property.hidden?? || property.hidden == false)>
+			<#if property.association == false && property.findBy?? && property.findBy == true> 
+	public List<${class.name}> findBy${property.name?cap_first}(${property.type} ${property.name}) {
+		return ${class.name?uncap_first}Repository.findBy${property.name?cap_first}(${property.name});
+	}
+	
+			<#elseif property.association == true && property.zoom?? && property.zoom == true>
+	public List<${class.name}> findBy${property.type}Id(Long id) {
+		return ${class.name?uncap_first}Repository.findBy${property.type}Id(id);
+	}
+	
+			</#if>
+		</#if>
+ 	</#list>
 	
 }
