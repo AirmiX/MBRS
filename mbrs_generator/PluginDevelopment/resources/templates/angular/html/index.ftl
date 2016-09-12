@@ -12,7 +12,7 @@
 <script src="/static/app/js/main.services.js"></script>
 <script src="/static/app/js/main.routes.js"></script>
 
-<script src="//npmcdn.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/static/app/css/main.css" />
